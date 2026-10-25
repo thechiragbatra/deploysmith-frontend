@@ -1,4 +1,4 @@
-# Deploys the static frontend to GitHub Pages on every push to main.
+# Deploys the complete DeploySmith OS frontend (React UI) to GitHub Pages.
 name: Deploy Frontend to GitHub Pages
 
 on:
@@ -26,10 +26,22 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+        working-directory: frontend
+      - name: Build
+        run: npm run build
+        working-directory: frontend
       - name: Upload frontend artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: 'frontend/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
