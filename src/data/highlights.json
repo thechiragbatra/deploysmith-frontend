@@ -1,0 +1,24 @@
+[
+  {
+    "value": 89.6,
+    "decimals": 1,
+    "suffix": "%",
+    "label": "fraud recall at a 1% false-positive rate (RADAR)"
+  },
+  {
+    "value": 0.4,
+    "decimals": 1,
+    "suffix": " ms",
+    "label": "median model scoring latency on AWS Fargate"
+  },
+  {
+    "value": 56,
+    "suffix": "%",
+    "label": "lower retention spend from uplift modeling"
+  },
+  {
+    "value": 0.887,
+    "decimals": 3,
+    "label": "ROC-AUC flagging at-risk students"
+  }
+]
